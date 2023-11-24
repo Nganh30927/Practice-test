@@ -1,0 +1,38 @@
+
+#Get All 
+GET http://localhost:8080/api/v1/articles HTTP/1.1
+
+###
+
+#Get a by ID
+GET http://localhost:8080/api/v1/articles/65592d42432431afdfdaa1fa HTTP/1.1
+
+###
+
+## Creat a new item
+POST http://localhost:8080/api/v1/articles HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Why your EV’s voltage matters, and what it means for your car’s charging speed",
+    "keyword": "Digital Trends",
+    "description": "The voltage of an electric car can be a little confusing. Here's everything you need to know, and why it matters to your EV experience",
+    "content": "General Motors\r\nElectric cars are slowly, but surely becoming commonplace, and they introduce a whole new generation of specifications that are worth caring about. Range is an obvious one — but there…",
+    "date": "2023-11-19"
+ 
+}
+
+
+# {
+#     "title": "Apple released OS 15 beta",
+#     "keyword": "apple, os",
+#     "description": "To day Apple released OS 15 beta",
+#     "content": "In publishing and graphic design, Lorem ipsum is a placeholder text",
+#     "date": "2023-11-19"
+ 
+# }
+
+
+
+
+///date (yyyy/dd/mm)

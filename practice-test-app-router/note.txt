@@ -1,0 +1,58 @@
+"use client"
+import React from 'react'
+
+const BlogsPage = () => {
+  const [blog, setBlog] = React.useState(null);
+  React.useEffect(()=>{
+    const fetchData = async ()=>{
+      const res = await fetch(`http://localhost:8080/api/v1/articles`);
+      const data = await res.json();
+      console.log(data); 
+    }
+    fetchData();
+  },[]);
+
+  return (
+    <div>ProductsPage</div>
+  )
+}
+
+export default BlogsPage
+
+
+
+
+
+import { Metadata } from 'next'
+import { getArticle } from '@/actions/article'
+import { IArticle } from '@/models/Article.model';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Blog Page',
+}
+
+
+export default async function Pages() {
+
+  const res = await getArticle();
+  const articles = res.articles;
+
+  return (
+    <main className="">
+      <h1>Blogs</h1>
+
+      <ul>
+        {
+          articles && articles.map((article)=>{
+            return (
+              <li key={article._id}>
+                <Link href={`articles/${article._id}`}>{article.title}</Link>
+                </li>
+            )
+          })
+        }
+      </ul>
+    </main>
+  )
+}
