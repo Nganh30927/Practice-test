@@ -14,7 +14,7 @@ const connectDB = async () => {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
-    await mongoose.connect('mongodb://localhost:27017/NodejsTest', mongooseDbOptions);
+    await mongoose.connect('mongodb://localhost:27017/PracticeTest', mongooseDbOptions);
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('Failed to connect to MongoDB', error);
